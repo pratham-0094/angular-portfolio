@@ -1,484 +1,135 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- Navbar -->
+<nav class="fixed">
+  <ul class="flex text-sm my-3 text-silver-chalice">
+    <li class="cursor-pointer mx-6">HOME</li>
+    <li class="cursor-pointer mx-6">ABOUT</li>
+    <li class="cursor-pointer mx-6">PROJECT</li>
+    <li class="cursor-pointer mx-6">WORK</li>
+    <li class="cursor-pointer mx-6">CONTACT</li>
+  </ul>
+</nav>
 
-<style>
-  :host {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 14px;
-    color: #333;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 8px 0;
-  }
-
-  p {
-    margin: 0;
-  }
-
-  .spacer {
-    flex: 1;
-  }
-
-  .toolbar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-  }
-
-  .toolbar img {
-    margin: 0 16px;
-  }
-
-  .toolbar #twitter-logo {
-    height: 40px;
-    margin: 0 8px;
-  }
-
-  .toolbar #youtube-logo {
-    height: 40px;
-    margin: 0 16px;
-  }
-
-  .toolbar #twitter-logo:hover,
-  .toolbar #youtube-logo:hover {
-    opacity: 0.8;
-  }
-
-  .content {
-    display: flex;
-    margin: 82px auto 32px;
-    padding: 0 16px;
-    max-width: 960px;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  svg.material-icons {
-    height: 24px;
-    width: auto;
-  }
-
-  svg.material-icons:not(:last-child) {
-    margin-right: 8px;
-  }
-
-  .card svg.material-icons path {
-    fill: #888;
-  }
-
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 16px;
-  }
-
-  .card {
-    all: unset;
-    border-radius: 4px;
-    border: 1px solid #eee;
-    background-color: #fafafa;
-    height: 40px;
-    width: 200px;
-    margin: 0 8px 16px;
-    padding: 16px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.2s ease-in-out;
-    line-height: 24px;
-  }
-
-  .card-container .card:not(:last-child) {
-    margin-right: 0;
-  }
-
-  .card.card-small {
-    height: 16px;
-    width: 168px;
-  }
-
-  .card-container .card:not(.highlight-card) {
-    cursor: pointer;
-  }
-
-  .card-container .card:not(.highlight-card):hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
-  }
-
-  .card-container .card:not(.highlight-card):hover .material-icons path {
-    fill: rgb(105, 103, 103);
-  }
-
-  .card.highlight-card {
-    background-color: #1976d2;
-    color: white;
-    font-weight: 600;
-    border: none;
-    width: auto;
-    min-width: 30%;
-    position: relative;
-  }
-
-  .card.card.highlight-card span {
-    margin-left: 60px;
-  }
-
-  svg#rocket {
-    width: 80px;
-    position: absolute;
-    left: -10px;
-    top: -24px;
-  }
-
-  svg#rocket-smoke {
-    height: calc(100vh - 95px);
-    position: absolute;
-    top: 10px;
-    right: 180px;
-    z-index: -10;
-  }
-
-  a,
-  a:visited,
-  a:hover {
-    color: #1976d2;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: #125699;
-  }
-
-  .terminal {
-    position: relative;
-    width: 80%;
-    max-width: 600px;
-    border-radius: 6px;
-    padding-top: 45px;
-    margin-top: 8px;
-    overflow: hidden;
-    background-color: rgb(15, 15, 16);
-  }
-
-  .terminal::before {
-    content: "\2022 \2022 \2022";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 4px;
-    background: rgb(58, 58, 58);
-    color: #c2c3c4;
-    width: 100%;
-    font-size: 2rem;
-    line-height: 0;
-    padding: 14px 0;
-    text-indent: 4px;
-  }
-
-  .terminal pre {
-    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
-    color: white;
-    padding: 0 1rem 1rem;
-    margin: 0;
-  }
-
-  .circle-link {
-    height: 40px;
-    width: 40px;
-    border-radius: 40px;
-    margin: 8px;
-    background-color: white;
-    border: 1px solid #eeeeee;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: 1s ease-out;
-  }
-
-  .circle-link:hover {
-    transform: translateY(-0.25rem);
-    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
-  }
-
-  footer {
-    margin-top: 8px;
-    display: flex;
-    align-items: center;
-    line-height: 20px;
-  }
-
-  footer a {
-    display: flex;
-    align-items: center;
-  }
-
-  .github-star-badge {
-    color: #24292e;
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-    padding: 3px 10px;
-    border: 1px solid rgba(27,31,35,.2);
-    border-radius: 3px;
-    background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
-    margin-left: 4px;
-    font-weight: 600;
-  }
-
-  .github-star-badge:hover {
-    background-image: linear-gradient(-180deg,#f0f3f6,#e6ebf1 90%);
-    border-color: rgba(27,31,35,.35);
-    background-position: -.5em;
-  }
-
-  .github-star-badge .material-icons {
-    height: 16px;
-    width: 16px;
-    margin-right: 4px;
-  }
-
-  svg#clouds {
-    position: fixed;
-    bottom: -160px;
-    left: -230px;
-    z-index: -10;
-    width: 1920px;
-  }
-
-  /* Responsive Styles */
-  @media screen and (max-width: 767px) {
-    .card-container > *:not(.circle-link) ,
-    .terminal {
-      width: 100%;
-    }
-
-    .card:not(.highlight-card) {
-      height: 16px;
-      margin: 8px 0;
-    }
-
-    .card.highlight-card span {
-      margin-left: 72px;
-    }
-
-    svg#rocket-smoke {
-      right: 120px;
-      transform: rotate(-5deg);
-    }
-  }
-
-  @media screen and (max-width: 575px) {
-    svg#rocket-smoke {
-      display: none;
-      visibility: hidden;
-    }
-  }
-</style>
-
-<!-- Toolbar -->
-<div class="toolbar" role="banner">
-  <img
-    width="40"
-    alt="Angular Logo"
-    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
-  />
-  <span>Welcome</span>
-    <div class="spacer"></div>
-    <a aria-label="Angular on twitter" target="_blank" rel="noopener" href="https://twitter.com/angular" title="Twitter">
-      <svg id="twitter-logo" height="24" data-name="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
-        <rect width="400" height="400" fill="none"/>
-        <path d="M153.62,301.59c94.34,0,145.94-78.16,145.94-145.94,0-2.22,0-4.43-.15-6.63A104.36,104.36,0,0,0,325,122.47a102.38,102.38,0,0,1-29.46,8.07,51.47,51.47,0,0,0,22.55-28.37,102.79,102.79,0,0,1-32.57,12.45,51.34,51.34,0,0,0-87.41,46.78A145.62,145.62,0,0,1,92.4,107.81a51.33,51.33,0,0,0,15.88,68.47A50.91,50.91,0,0,1,85,169.86c0,.21,0,.43,0,.65a51.31,51.31,0,0,0,41.15,50.28,51.21,51.21,0,0,1-23.16.88,51.35,51.35,0,0,0,47.92,35.62,102.92,102.92,0,0,1-63.7,22A104.41,104.41,0,0,1,75,278.55a145.21,145.21,0,0,0,78.62,23" fill="#fff"/>
+<!-- Social -->
+<nav class="fixed bottom-0 flex justify-center w-screen">
+  <ul
+    class="flex justify-between items-center bg-silver-chalice w-96 px-8 py-3 rounded-t-full"
+  >
+    <a href="" class="cursor-pointer" target="_blank">
+      <svg
+        width="22"
+        height="18"
+        viewBox="0 0 28 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M27 1.01233C27 1.01233 24.6151 2.47379 23.2891 2.8882C22.5773 2.03917 21.6314 1.43739 20.5792 1.16427C19.527 0.891146 18.4194 0.959848 17.4061 1.36109C16.3928 1.76232 15.5227 2.47673 14.9135 3.4077C14.3043 4.33866 13.9855 5.44126 14 6.56637V7.79243C11.9231 7.8483 9.86514 7.37044 8.00937 6.4014C6.15361 5.43237 4.55765 4.00224 3.36364 2.23839C3.36364 2.23839 -1.36364 13.2729 9.27273 18.1771C6.83881 19.8911 3.93937 20.7506 1 20.6293C11.6364 26.7596 24.6364 20.6293 24.6364 6.52959C24.6364 6.18875 24.6033 5.8479 24.5418 5.51196C25.7473 4.27855 27 1.01233 27 1.01233Z"
+          stroke="black"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
       </svg>
     </a>
-    <a aria-label="Angular on YouTube" target="_blank" rel="noopener" href="https://youtube.com/angular" title="YouTube">
-      <svg id="youtube-logo" height="24" width="24" data-name="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fff">
-        <path d="M0 0h24v24H0V0z" fill="none"/>
-        <path d="M21.58 7.19c-.23-.86-.91-1.54-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.81.42c-.86.23-1.54.91-1.77 1.77C2 8.75 2 12 2 12s0 3.25.42 4.81c.23.86.91 1.54 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.81-.42c.86-.23 1.54-.91 1.77-1.77C22 15.25 22 12 22 12s0-3.25-.42-4.81zM10 15V9l5.2 3-5.2 3z"/>
+    <a href="" class="cursor-pointer" target="_blank">
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 26 26"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M7.64045 0.078C9.02673 0.0141818 9.46873 0 13 0C16.5313 0 16.9733 0.0153636 18.3584 0.078C19.7435 0.140636 20.6889 0.361636 21.5162 0.681909C22.3825 1.00927 23.1684 1.521 23.8184 2.18282C24.4802 2.83164 24.9907 3.61636 25.3169 4.48382C25.6384 5.31109 25.8582 6.25655 25.922 7.63927C25.9858 9.02791 26 9.46991 26 13C26 16.5313 25.9846 16.9733 25.922 18.3595C25.8594 19.7423 25.6384 20.6877 25.3169 21.515C24.9907 22.3826 24.4793 23.1686 23.8184 23.8184C23.1684 24.4802 22.3825 24.9907 21.5162 25.3169C20.6889 25.6384 19.7435 25.8582 18.3607 25.922C16.9733 25.9858 16.5313 26 13 26C9.46873 26 9.02673 25.9846 7.64045 25.922C6.25773 25.8594 5.31227 25.6384 4.485 25.3169C3.61745 24.9907 2.83142 24.4793 2.18164 23.8184C1.52027 23.1692 1.00846 22.3835 0.681909 21.5162C0.361636 20.6889 0.141818 19.7435 0.078 18.3607C0.0141818 16.9721 0 16.5301 0 13C0 9.46873 0.0153636 9.02673 0.078 7.64164C0.140636 6.25655 0.361636 5.31109 0.681909 4.48382C1.00895 3.61646 1.52114 2.83082 2.18282 2.18164C2.83168 1.52041 3.61692 1.00861 4.48382 0.681909C5.31109 0.361636 6.25655 0.141818 7.63927 0.078H7.64045ZM18.2532 2.418C16.8823 2.35536 16.471 2.34236 13 2.34236C9.529 2.34236 9.11773 2.35536 7.74682 2.418C6.47873 2.47591 5.79091 2.68745 5.33236 2.86591C4.72609 3.10227 4.29236 3.38236 3.83736 3.83736C3.40605 4.25697 3.07412 4.76779 2.86591 5.33236C2.68745 5.79091 2.47591 6.47873 2.418 7.74682C2.35536 9.11773 2.34236 9.529 2.34236 13C2.34236 16.471 2.35536 16.8823 2.418 18.2532C2.47591 19.5213 2.68745 20.2091 2.86591 20.6676C3.07391 21.2314 3.406 21.7431 3.83736 22.1626C4.25691 22.594 4.76864 22.9261 5.33236 23.1341C5.79091 23.3125 6.47873 23.5241 7.74682 23.582C9.11773 23.6446 9.52782 23.6576 13 23.6576C16.4722 23.6576 16.8823 23.6446 18.2532 23.582C19.5213 23.5241 20.2091 23.3125 20.6676 23.1341C21.2739 22.8977 21.7076 22.6176 22.1626 22.1626C22.594 21.7431 22.9261 21.2314 23.1341 20.6676C23.3125 20.2091 23.5241 19.5213 23.582 18.2532C23.6446 16.8823 23.6576 16.471 23.6576 13C23.6576 9.529 23.6446 9.11773 23.582 7.74682C23.5241 6.47873 23.3125 5.79091 23.1341 5.33236C22.8977 4.72609 22.6176 4.29236 22.1626 3.83736C21.743 3.40608 21.2322 3.07416 20.6676 2.86591C20.2091 2.68745 19.5213 2.47591 18.2532 2.418ZM11.3395 17.0075C12.2669 17.3936 13.2994 17.4457 14.2609 17.1549C15.2224 16.8642 16.0531 16.2487 16.6112 15.4136C17.1693 14.5784 17.4201 13.5754 17.3208 12.5759C17.2215 11.5763 16.7783 10.6422 16.0668 9.93318C15.6133 9.47993 15.0649 9.13287 14.4611 8.91699C13.8574 8.70111 13.2132 8.62179 12.5751 8.68473C11.937 8.74767 11.3208 8.9513 10.7709 9.28097C10.2209 9.61064 9.75088 10.0582 9.39463 10.5913C9.03838 11.1244 8.80477 11.7299 8.71061 12.3641C8.61645 12.9984 8.66409 13.6456 8.85009 14.2592C9.0361 14.8729 9.35584 15.4376 9.78631 15.9129C10.2168 16.3881 10.7472 16.7619 11.3395 17.0075ZM8.27509 8.27509C8.89557 7.65461 9.6322 7.16241 10.4429 6.82661C11.2536 6.49081 12.1225 6.31797 13 6.31797C13.8775 6.31797 14.7464 6.4908 15.5571 6.82661C16.3678 7.16241 17.1044 7.65461 17.7249 8.27509C18.3454 8.89557 18.8376 9.6322 19.1734 10.4429C19.5092 11.2536 19.682 12.1225 19.682 13C19.682 13.8775 19.5092 14.7464 19.1734 15.5571C18.8376 16.3678 18.3454 17.1044 17.7249 17.7249C16.4718 18.978 14.7722 19.682 13 19.682C11.2278 19.682 9.52821 18.978 8.27509 17.7249C7.02197 16.4718 6.31797 14.7722 6.31797 13C6.31797 11.2278 7.02197 9.52821 8.27509 8.27509ZM21.164 7.31309C21.3178 7.16805 21.4409 6.99362 21.526 6.80015C21.6111 6.60668 21.6566 6.39809 21.6597 6.18674C21.6628 5.97538 21.6234 5.76556 21.5439 5.56968C21.4645 5.37381 21.3465 5.19588 21.197 5.04641C21.0476 4.89694 20.8696 4.77899 20.6738 4.69952C20.4779 4.62006 20.2681 4.5807 20.0567 4.58378C19.8454 4.58686 19.6368 4.63232 19.4433 4.71746C19.2498 4.8026 19.0754 4.92569 18.9304 5.07945C18.6483 5.37849 18.4938 5.77569 18.4998 6.18674C18.5058 6.59778 18.6718 6.99031 18.9625 7.281C19.2531 7.57168 19.6457 7.73763 20.0567 7.74363C20.4678 7.74962 20.865 7.59518 21.164 7.31309Z"
+          fill="black"
+        />
       </svg>
     </a>
-</div>
-
-<div class="content" role="main">
-
-  <!-- Highlight Card -->
-  <div class="card highlight-card card-small">
-
-    <svg id="rocket" xmlns="http://www.w3.org/2000/svg" width="101.678" height="101.678" viewBox="0 0 101.678 101.678">
-      <title>Rocket Ship</title>
-      <g id="Group_83" data-name="Group 83" transform="translate(-141 -696)">
-        <circle id="Ellipse_8" data-name="Ellipse 8" cx="50.839" cy="50.839" r="50.839" transform="translate(141 696)" fill="#dd0031"/>
-        <g id="Group_47" data-name="Group 47" transform="translate(165.185 720.185)">
-          <path id="Path_33" data-name="Path 33" d="M3.4,42.615a3.084,3.084,0,0,0,3.553,3.553,21.419,21.419,0,0,0,12.215-6.107L9.511,30.4A21.419,21.419,0,0,0,3.4,42.615Z" transform="translate(0.371 3.363)" fill="#fff"/>
-          <path id="Path_34" data-name="Path 34" d="M53.3,3.221A3.09,3.09,0,0,0,50.081,0,48.227,48.227,0,0,0,18.322,13.437c-6-1.666-14.991-1.221-18.322,7.218A33.892,33.892,0,0,1,9.439,25.1l-.333.666a3.013,3.013,0,0,0,.555,3.553L23.985,43.641a2.9,2.9,0,0,0,3.553.555l.666-.333A33.892,33.892,0,0,1,32.647,53.3c8.55-3.664,8.884-12.326,7.218-18.322A48.227,48.227,0,0,0,53.3,3.221ZM34.424,9.772a6.439,6.439,0,1,1,9.106,9.106,6.368,6.368,0,0,1-9.106,0A6.467,6.467,0,0,1,34.424,9.772Z" transform="translate(0 0.005)" fill="#fff"/>
-        </g>
-      </g>
-    </svg>
-
-    <span>{{ title }} app is running!</span>
-
-    <svg id="rocket-smoke" xmlns="http://www.w3.org/2000/svg" width="516.119" height="1083.632" viewBox="0 0 516.119 1083.632">
-      <title>Rocket Ship Smoke</title>
-      <path id="Path_40" data-name="Path 40" d="M644.6,141S143.02,215.537,147.049,870.207s342.774,201.755,342.774,201.755S404.659,847.213,388.815,762.2c-27.116-145.51-11.551-384.124,271.9-609.1C671.15,139.365,644.6,141,644.6,141Z" transform="translate(-147.025 -140.939)" fill="#f5f5f5"/>
-    </svg>
-
-  </div>
-
-  <!-- Resources -->
-  <h2>Resources</h2>
-  <p>Here are some links to help you get started:</p>
-
-  <div class="card-container">
-    <a class="card" target="_blank" rel="noopener" href="https://angular.io/tutorial">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
-      <span>Learn Angular</span>
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>    </a>
-
-    <a class="card" target="_blank" rel="noopener" href="https://angular.io/cli">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
-      <span>CLI Documentation</span>
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </a>
-
-    <a class="card" target="_blank" rel="noopener" href="https://material.angular.io">
-      <svg xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px" width="21.813" height="23.453" viewBox="0 0 21.813 23.453"><path d="M4099.584,972.736h0l-10.882,3.9,1.637,14.4,9.245,5.153,9.245-5.153,1.686-14.4Z" transform="translate(-4088.702 -972.736)" fill="#808080"/><path d="M4181.516,972.736v23.453l9.245-5.153,1.686-14.4Z" transform="translate(-4170.633 -972.736)" fill="#808080"/><path d="M4137.529,1076.127l-7.7-3.723,4.417-2.721,7.753,3.723Z" transform="translate(-4125.003 -1058.315)" fill="#ffe0b2"/><path d="M4137.529,1051.705l-7.7-3.723,4.417-2.721,7.753,3.723Z" transform="translate(-4125.003 -1036.757)" fill="#fff3e0"/><path d="M4137.529,1027.283l-7.7-3.723,4.417-2.721,7.753,3.723Z" transform="translate(-4125.003 -1015.199)" fill="#fff"/></svg>
-      <span>Angular Material</span>
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </a>
-
-    <a class="card" target="_blank" rel="noopener" href="https://blog.angular.io/">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/></svg>
-      <span>Angular Blog</span>
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </a>
-
-    <a class="card" target="_blank" rel="noopener" href="https://angular.io/devtools/">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><g><rect fill="none" height="24" width="24"/></g><g><g><path d="M14.73,13.31C15.52,12.24,16,10.93,16,9.5C16,5.91,13.09,3,9.5,3S3,5.91,3,9.5C3,13.09,5.91,16,9.5,16 c1.43,0,2.74-0.48,3.81-1.27L19.59,21L21,19.59L14.73,13.31z M9.5,14C7.01,14,5,11.99,5,9.5S7.01,5,9.5,5S14,7.01,14,9.5 S11.99,14,9.5,14z"/><polygon points="10.29,8.44 9.5,6 8.71,8.44 6.25,8.44 8.26,10.03 7.49,12.5 9.5,10.97 11.51,12.5 10.74,10.03 12.75,8.44"/></g></g></svg>
-      <span>Angular DevTools</span>
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
-    </a>
-
-  </div>
-
-  <!-- Next Steps -->
-  <h2>Next Steps</h2>
-  <p>What do you want to do next with your app?</p>
-
-  <input type="hidden" #selection>
-
-  <div class="card-container">
-    <button class="card card-small" (click)="selection.value = 'component'" tabindex="0">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-      <span>New Component</span>
-    </button>
-
-    <button class="card card-small" (click)="selection.value = 'material'" tabindex="0">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-      <span>Angular Material</span>
-    </button>
-
-    <button class="card card-small" (click)="selection.value = 'pwa'" tabindex="0">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-      <span>Add PWA Support</span>
-    </button>
-
-    <button class="card card-small" (click)="selection.value = 'dependency'" tabindex="0">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-      <span>Add Dependency</span>
-    </button>
-
-    <button class="card card-small" (click)="selection.value = 'test'" tabindex="0">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-      <span>Run and Watch Tests</span>
-    </button>
-
-    <button class="card card-small" (click)="selection.value = 'build'" tabindex="0">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-      <span>Build for Production</span>
-    </button>
-  </div>
-
-  <!-- Terminal -->
-  <div class="terminal" [ngSwitch]="selection.value">
-      <pre *ngSwitchDefault>ng generate component xyz</pre>
-      <pre *ngSwitchCase="'material'">ng add @angular/material</pre>
-      <pre *ngSwitchCase="'pwa'">ng add @angular/pwa</pre>
-      <pre *ngSwitchCase="'dependency'">ng add _____</pre>
-      <pre *ngSwitchCase="'test'">ng test</pre>
-      <pre *ngSwitchCase="'build'">ng build</pre>
-  </div>
-
-  <!-- Links -->
-  <div class="card-container">
-    <a class="circle-link" title="Find a Local Meetup" href="https://www.meetup.com/find/?keywords=angular" target="_blank" rel="noopener">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24.607" height="23.447" viewBox="0 0 24.607 23.447">
-        <title>Meetup Logo</title>
-        <path id="logo--mSwarm" d="M21.221,14.95A4.393,4.393,0,0,1,17.6,19.281a4.452,4.452,0,0,1-.8.069c-.09,0-.125.035-.154.117a2.939,2.939,0,0,1-2.506,2.091,2.868,2.868,0,0,1-2.248-.624.168.168,0,0,0-.245-.005,3.926,3.926,0,0,1-2.589.741,4.015,4.015,0,0,1-3.7-3.347,2.7,2.7,0,0,1-.043-.38c0-.106-.042-.146-.143-.166a3.524,3.524,0,0,1-1.516-.69A3.623,3.623,0,0,1,2.23,14.557a3.66,3.66,0,0,1,1.077-3.085.138.138,0,0,0,.026-.2,3.348,3.348,0,0,1-.451-1.821,3.46,3.46,0,0,1,2.749-3.28.44.44,0,0,0,.355-.281,5.072,5.072,0,0,1,3.863-3,5.028,5.028,0,0,1,3.555.666.31.31,0,0,0,.271.03A4.5,4.5,0,0,1,18.3,4.7a4.4,4.4,0,0,1,1.334,2.751,3.658,3.658,0,0,1,.022.706.131.131,0,0,0,.1.157,2.432,2.432,0,0,1,1.574,1.645,2.464,2.464,0,0,1-.7,2.616c-.065.064-.051.1-.014.166A4.321,4.321,0,0,1,21.221,14.95ZM13.4,14.607a2.09,2.09,0,0,0,1.409,1.982,4.7,4.7,0,0,0,1.275.221,1.807,1.807,0,0,0,.9-.151.542.542,0,0,0,.321-.545.558.558,0,0,0-.359-.534,1.2,1.2,0,0,0-.254-.078c-.262-.047-.526-.086-.787-.138a.674.674,0,0,1-.617-.75,3.394,3.394,0,0,1,.218-1.109c.217-.658.509-1.286.79-1.918a15.609,15.609,0,0,0,.745-1.86,1.95,1.95,0,0,0,.06-1.073,1.286,1.286,0,0,0-1.051-1.033,1.977,1.977,0,0,0-1.521.2.339.339,0,0,1-.446-.042c-.1-.092-.2-.189-.307-.284a1.214,1.214,0,0,0-1.643-.061,7.563,7.563,0,0,1-.614.512A.588.588,0,0,1,10.883,8c-.215-.115-.437-.215-.659-.316a2.153,2.153,0,0,0-.695-.248A2.091,2.091,0,0,0,7.541,8.562a9.915,9.915,0,0,0-.405.986c-.559,1.545-1.015,3.123-1.487,4.7a1.528,1.528,0,0,0,.634,1.777,1.755,1.755,0,0,0,1.5.211,1.35,1.35,0,0,0,.824-.858c.543-1.281,1.032-2.584,1.55-3.875.142-.355.28-.712.432-1.064a.548.548,0,0,1,.851-.24.622.622,0,0,1,.185.539,2.161,2.161,0,0,1-.181.621c-.337.852-.68,1.7-1.018,2.552a2.564,2.564,0,0,0-.173.528.624.624,0,0,0,.333.71,1.073,1.073,0,0,0,.814.034,1.22,1.22,0,0,0,.657-.655q.758-1.488,1.511-2.978.35-.687.709-1.37a1.073,1.073,0,0,1,.357-.434.43.43,0,0,1,.463-.016.373.373,0,0,1,.153.387.7.7,0,0,1-.057.236c-.065.157-.127.316-.2.469-.42.883-.846,1.763-1.262,2.648A2.463,2.463,0,0,0,13.4,14.607Zm5.888,6.508a1.09,1.09,0,0,0-2.179.006,1.09,1.09,0,0,0,2.179-.006ZM1.028,12.139a1.038,1.038,0,1,0,.01-2.075,1.038,1.038,0,0,0-.01,2.075ZM13.782.528a1.027,1.027,0,1,0-.011,2.055A1.027,1.027,0,0,0,13.782.528ZM22.21,6.95a.882.882,0,0,0-1.763.011A.882.882,0,0,0,22.21,6.95ZM4.153,4.439a.785.785,0,1,0,.787-.78A.766.766,0,0,0,4.153,4.439Zm8.221,18.22a.676.676,0,1,0-.677.666A.671.671,0,0,0,12.374,22.658ZM22.872,12.2a.674.674,0,0,0-.665.665.656.656,0,0,0,.655.643.634.634,0,0,0,.655-.644A.654.654,0,0,0,22.872,12.2ZM7.171-.123A.546.546,0,0,0,6.613.43a.553.553,0,1,0,1.106,0A.539.539,0,0,0,7.171-.123ZM24.119,9.234a.507.507,0,0,0-.493.488.494.494,0,0,0,.494.494.48.48,0,0,0,.487-.483A.491.491,0,0,0,24.119,9.234Zm-19.454,9.7a.5.5,0,0,0-.488-.488.491.491,0,0,0-.487.5.483.483,0,0,0,.491.479A.49.49,0,0,0,4.665,18.936Z" transform="translate(0 0.123)" fill="#f64060"/>
+    <a href="" class="cursor-pointer" target="_blank">
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 28 28"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M19.6667 27V23.274C19.7167 22.6549 19.6308 22.0326 19.4147 21.4484C19.1986 20.8641 18.8573 20.3314 18.4134 19.8855C22.6 19.4311 27 17.8862 27 10.7977C26.9997 8.98511 26.2836 7.24203 25 5.92923C25.6078 4.34341 25.5648 2.59055 24.88 1.03478C24.88 1.03478 23.3067 0.580393 19.6667 2.95621C16.6107 2.14976 13.3894 2.14976 10.3334 2.95621C6.69342 0.580393 5.12009 1.03478 5.12009 1.03478C4.43527 2.59055 4.39229 4.34341 5.00009 5.92923C3.70694 7.25176 2.99013 9.0106 3.0001 10.8367C3.0001 17.8732 7.40008 19.4182 11.5867 19.9245C11.1481 20.3658 10.8098 20.8922 10.5938 21.4693C10.3779 22.0464 10.2892 22.6613 10.3334 23.274V27"
+          stroke="black"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M10.3333 24.4036C6.33331 25.6668 2.99999 24.4036 1 20.5088"
+          stroke="black"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
       </svg>
     </a>
-
-    <a class="circle-link" title="Join the Conversation on Discord" href="https://discord.gg/angular" target="_blank" rel="noopener">
-      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 245 240">
-        <title>Discord Logo</title>
-        <path d="M104.4 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1.1-6.1-4.5-11.1-10.2-11.1zM140.9 103.9c-5.7 0-10.2 5-10.2 11.1s4.6 11.1 10.2 11.1c5.7 0 10.2-5 10.2-11.1s-4.5-11.1-10.2-11.1z"/>
-        <path d="M189.5 20h-134C44.2 20 35 29.2 35 40.6v135.2c0 11.4 9.2 20.6 20.5 20.6h113.4l-5.3-18.5 12.8 11.9 12.1 11.2 21.5 19V40.6c0-11.4-9.2-20.6-20.5-20.6zm-38.6 130.6s-3.6-4.3-6.6-8.1c13.1-3.7 18.1-11.9 18.1-11.9-4.1 2.7-8 4.6-11.5 5.9-5 2.1-9.8 3.5-14.5 4.3-9.6 1.8-18.4 1.3-25.9-.1-5.7-1.1-10.6-2.7-14.7-4.3-2.3-.9-4.8-2-7.3-3.4-.3-.2-.6-.3-.9-.5-.2-.1-.3-.2-.4-.3-1.8-1-2.8-1.7-2.8-1.7s4.8 8 17.5 11.8c-3 3.8-6.7 8.3-6.7 8.3-22.1-.7-30.5-15.2-30.5-15.2 0-32.2 14.4-58.3 14.4-58.3 14.4-10.8 28.1-10.5 28.1-10.5l1 1.2c-18 5.2-26.3 13.1-26.3 13.1s2.2-1.2 5.9-2.9c10.7-4.7 19.2-6 22.7-6.3.6-.1 1.1-.2 1.7-.2 6.1-.8 13-1 20.2-.2 9.5 1.1 19.7 3.9 30.1 9.6 0 0-7.9-7.5-24.9-12.7l1.4-1.6s13.7-.3 28.1 10.5c0 0 14.4 26.1 14.4 58.3 0 0-8.5 14.5-30.6 15.2z"/>
+    <a href="" class="cursor-pointer" target="_blank">
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 26 26"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M25.3247 25.9946H20.0449C19.6714 25.9946 19.3696 25.6796 19.3696 25.2899V16.4169C19.3696 13.3737 17.8654 13.3737 17.3692 13.3737C16.0339 13.3737 15.466 14.4736 15.2818 14.9487C15.1948 15.1623 15.1539 15.5253 15.1539 16.0325V25.2953C15.1539 25.685 14.852 26 14.4786 26H9.19365C9.01459 26 8.84064 25.9253 8.71274 25.7918C8.58485 25.6584 8.51322 25.4768 8.51833 25.2899C8.51833 25.1405 8.58995 10.2613 8.51833 8.73974C8.5081 8.54754 8.57459 8.36068 8.70251 8.22187C8.83043 8.08306 9.00436 8.00297 9.19363 8.00297H14.4786C14.852 8.00297 15.1539 8.31793 15.1539 8.70767V9.12409C16.0441 8.29659 17.3282 7.61321 19.2416 7.61321C23.4726 7.61321 26 10.667 26 15.7815V25.2899C26 25.6796 25.6981 25.9946 25.3247 25.9946ZM20.7202 24.5852L24.6545 24.5851V15.7815C24.6545 11.4837 22.6848 9.02258 19.2468 9.02258C16.9496 9.02258 15.8343 10.2185 15.1334 11.3129C15.0516 11.6012 14.7906 11.8148 14.4837 11.8148H14.4479C14.2023 11.8148 13.9772 11.676 13.8596 11.4518C13.7675 11.2756 13.747 11.0727 13.8084 10.8858V9.40701H9.88434C9.92015 12.3487 9.88434 21.8678 9.87411 24.5799H13.8033V16.0271C13.8033 15.3171 13.8749 14.8045 14.0284 14.4148C14.6218 12.8826 15.8701 11.959 17.3641 11.959C19.4924 11.959 20.7151 13.582 20.7151 16.4115V24.5852H20.7202L20.7202 24.5852ZM6.27237 25.9945H0.987434C0.613958 25.9945 0.312131 25.6795 0.312131 25.2898V8.70761C0.312131 8.31788 0.613958 8.00289 0.987434 8.00289H6.27237C6.64584 8.00289 6.94767 8.31788 6.94767 8.70759V25.2898C6.94767 25.6796 6.64584 25.9945 6.27237 25.9945V25.9945ZM1.66279 24.5851H5.59704V9.41228H1.66281V24.5851L1.66279 24.5851ZM3.63245 7.14866L3.59661 7.14863C1.51436 7.14863 0 5.6431 0 3.57165C0 1.50556 1.53994 0 3.66824 0C5.76072 0 7.25465 1.46281 7.29559 3.55563C7.29559 5.6431 5.75564 7.14863 3.63245 7.14863V7.14866ZM3.66824 1.41479C2.28177 1.41479 1.35066 2.28502 1.35066 3.57703C1.35066 4.84764 2.27157 5.73922 3.59664 5.73922H3.63243C5.01379 5.73922 5.94491 4.86899 5.94491 3.577C5.91932 2.269 5.02402 1.41479 3.66824 1.41479Z"
+          fill="black"
+        />
       </svg>
     </a>
-  </div>
+    <a href="" class="cursor-pointer" target="_blank">
+      <svg
+        width="22"
+        height="18"
+        viewBox="0 0 30 26"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M11.4171 0L10.5804 0.110463C10.5804 0.110463 6.82607 0.560542 4.08429 2.97546H4.05214L4.01786 3.01071C3.40286 3.63119 3.135 4.39385 2.71179 5.50906C2.21291 6.85079 1.78821 8.22428 1.44 9.62206C0.645 12.775 0 16.5942 0 20.0879V20.3816L0.133929 20.6754C1.12607 22.585 2.8875 23.8013 4.52036 24.6415C6.15214 25.4818 7.56321 25.9271 8.53821 25.9636L9.17464 26L9.50893 25.376L10.6811 23.0986C11.9239 23.4065 13.3554 23.6133 15 23.6133C16.6446 23.6133 18.0761 23.4065 19.3189 23.0986L20.4911 25.376L20.8264 26L21.4618 25.9636C22.4368 25.9271 23.8479 25.4818 25.4796 24.6415C27.1125 23.8013 28.8739 22.585 29.8661 20.6754L30 20.3816V20.0879C30 16.5942 29.355 12.775 28.56 9.62206C28.2118 8.22428 27.7871 6.85079 27.2882 5.50906C26.865 4.39268 26.5971 3.63119 25.9821 3.01189L25.9489 2.97428H25.9146C23.175 0.560542 19.4196 0.110463 19.4196 0.110463L18.5829 0L18.2807 0.844926C18.2807 0.844926 17.9711 1.70278 17.7793 2.68167C16.8582 2.54228 15.9298 2.46849 15 2.46075C14.4268 2.46075 13.4357 2.50188 12.2207 2.68167C12.094 2.05688 11.9261 1.44302 11.7182 0.844926L11.4171 0ZM9.94393 2.68167C9.99 2.84619 10.0361 2.98838 10.0779 3.12235C8.6925 3.4984 7.215 4.07186 5.85964 4.99435L6.9975 6.97799C9.77679 5.08601 13.7689 4.81103 15 4.81103C16.23 4.81103 20.2232 5.08601 23.0025 6.97799L24.1404 4.99435C22.785 4.07186 21.3075 3.49839 19.9221 3.12117C19.9639 2.98838 20.01 2.84619 20.0561 2.6805C21.0557 2.90142 22.965 3.40673 24.5421 4.7746C24.5336 4.7793 24.9439 5.45853 25.3125 6.42685C25.6896 7.42337 26.1075 8.7501 26.4846 10.2461C27.2089 13.1146 27.7779 16.6083 27.8239 19.6836C27.1489 20.8129 25.8986 21.8318 24.5754 22.5122C23.7455 22.9423 22.8676 23.2505 21.9643 23.4288L21.4286 22.4381C21.7468 22.3089 22.0607 22.1679 22.3329 22.0339C23.9818 21.2395 24.8775 20.3816 24.8775 20.3816L23.4707 18.6189C23.4707 18.6189 22.8686 19.2253 21.4618 19.9045C20.0571 20.5838 17.9089 21.263 15 21.263C12.0911 21.263 9.94393 20.5838 8.53821 19.9045C7.13143 19.2253 6.52929 18.6189 6.52929 18.6189L5.1225 20.3816C5.1225 20.3816 6.01821 21.2395 7.66714 22.0339C7.93929 22.1679 8.25321 22.3101 8.57143 22.4381L8.03571 23.43C7.13194 23.251 6.25364 22.942 5.42357 22.511C4.10143 21.8318 2.85 20.8129 2.17714 19.6836C2.22214 16.6083 2.79107 13.1146 3.51643 10.2461C3.83695 8.9485 4.228 7.67314 4.6875 6.42685C5.05607 5.45853 5.46643 4.7793 5.45786 4.7746C7.035 3.40673 8.94429 2.90142 9.94393 2.68167ZM11.25 10.6867C10.4218 10.6867 9.68893 11.205 9.24107 11.8619C8.79321 12.5188 8.57143 13.3261 8.57143 14.2122C8.57143 15.0982 8.79321 15.9055 9.24107 16.5624C9.68893 17.2193 10.4218 17.7376 11.25 17.7376C12.0782 17.7376 12.8111 17.2193 13.2589 16.5624C13.7068 15.9055 13.9286 15.0982 13.9286 14.2122C13.9286 13.3261 13.7068 12.5188 13.2589 11.8619C12.8111 11.205 12.0782 10.6867 11.25 10.6867ZM18.75 10.6867C17.9218 10.6867 17.1889 11.205 16.7411 11.8619C16.2932 12.5188 16.0714 13.3261 16.0714 14.2122C16.0714 15.0982 16.2932 15.9055 16.7411 16.5624C17.1889 17.2193 17.9218 17.7376 18.75 17.7376C19.5782 17.7376 20.3111 17.2193 20.7589 16.5624C21.2068 15.9055 21.4286 15.0982 21.4286 14.2122C21.4286 13.3261 21.2068 12.5188 20.7589 11.8619C20.3111 11.205 19.5782 10.6867 18.75 10.6867ZM11.25 13.037C11.3089 13.037 11.3839 13.0605 11.5179 13.2579C11.6518 13.4542 11.7857 13.7985 11.7857 14.2122C11.7857 14.6258 11.6518 14.9701 11.5179 15.1675C11.3839 15.3638 11.3089 15.3873 11.25 15.3873C11.1911 15.3873 11.1161 15.3638 10.9821 15.1664C10.805 14.8864 10.7114 14.553 10.7143 14.2122C10.7143 13.7985 10.8482 13.4542 10.9821 13.2568C11.1161 13.0605 11.1911 13.037 11.25 13.037ZM18.75 13.037C18.8089 13.037 18.8839 13.0605 19.0179 13.2579C19.1518 13.4542 19.2857 13.7985 19.2857 14.2122C19.2857 14.6258 19.1518 14.9701 19.0179 15.1675C18.8839 15.3638 18.8089 15.3873 18.75 15.3873C18.6911 15.3873 18.6161 15.3638 18.4821 15.1664C18.305 14.8864 18.2114 14.553 18.2143 14.2122C18.2143 13.7985 18.3482 13.4542 18.4821 13.2568C18.6161 13.0605 18.6911 13.037 18.75 13.037Z"
+          fill="black"
+        />
+      </svg>
+    </a>
+    <a href="" class="cursor-pointer" target="_blank">
+      <svg
+        width="24"
+        height="20"
+        viewBox="0 0 28 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M10.3628 3.7467H18.4144M1 3.7467H7.84292M12.1041 3.7467L20.0763 23L25.4723 9.96745M16.1777 3.7467L22.1127 18.0807M1.73924 3.7467L9.67416 22.9121L14.8587 10.3902M5.81281 3.7467L11.7113 17.9927M25.4723 9.96745C25.7794 9.01148 27 7.58065 27 5.52298C27 2.29766 25.8314 1 23.9257 1C22.3692 1 21.8155 2.33661 21.8155 3.45338C21.8155 6.76851 25.4723 7.2264 25.4723 9.96745Z"
+          stroke="black"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </a>
+  </ul>
+</nav>
 
-  <!-- Footer -->
-  <footer>
-      Love Angular?&nbsp;
-      <a href="https://github.com/angular/angular" target="_blank" rel="noopener"> Give our repo a star.
-        <div class="github-star-badge">
-            <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-          Star
-        </div>
-      </a>
-      <a href="https://github.com/angular/angular" target="_blank" rel="noopener">
-        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#1976d2"/><path d="M0 0h24v24H0z" fill="none"/></svg>
-      </a>
-  </footer>
+<!-- Home -->
+<div class="h-screen"></div>
 
-  <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
-    <title>Gray Clouds Background</title>
-    <path id="Path_39" data-name="Path 39" d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z" transform="translate(142.69 -634.312)" fill="#eee"/>
-  </svg>
+<!-- About -->
+<div class="h-screen"></div>
 
-</div>
+<!-- Project -->
+<div class="h-screen"></div>
 
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- Work -->
+<div class="h-screen"></div>
 
-<router-outlet></router-outlet>
+<!-- Contact -->
+<div class="h-screen"></div>
