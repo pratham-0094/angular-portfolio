@@ -2,7 +2,7 @@ module.exports = {
   content: ["./src/**/*.{html,ts}"],
   theme: {
     extend: {
-      color: {
+      colors: {
         white: "#FFFFFF",
         black: "#000000",
         "silver-chalice": "#B3B3B3",
