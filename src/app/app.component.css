@@ -3,8 +3,14 @@
     width: 100vw;
     padding: 0px 10px;
     justify-content: space-between;
+    font-size: 12px;
   }
+  
   .navbar ul li {
     margin: 0px;
+  }
+  
+  a svg{
+    width: 16px;
   }
 }
