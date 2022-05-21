@@ -1,0 +1,10 @@
+@media only screen and (max-width: 505px) {
+  .navbar ul {
+    width: 100vw;
+    padding: 0px 10px;
+    justify-content: space-between;
+  }
+  .navbar ul li {
+    margin: 0px;
+  }
+}
