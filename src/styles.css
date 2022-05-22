@@ -20,7 +20,7 @@ body::-webkit-scrollbar-thumb {
 
 html,
 body {
-  height: 100vh;
+  height: 100%;
   scroll-behavior: smooth;
 }
 
