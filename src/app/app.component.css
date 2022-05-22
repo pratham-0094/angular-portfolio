@@ -5,12 +5,62 @@
     justify-content: space-between;
     font-size: 10px;
   }
-  
+
   .navbar ul li {
     margin: 0px;
   }
-  
-  a svg{
+
+  a svg {
     width: 14px;
+  }
+}
+
+@media only screen and (min-width: 506px) {
+  ul li {
+    display: inline-block;
+    position: relative;
+  }
+
+  ul li:before {
+    content: "";
+    position: absolute;
+    top: 25px;
+    background-color: transparent;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    left: calc(50% - 3px);
+    transition: all 0.3s ease-in-out;
+  }
+
+  ul li:hover:before {
+    background-color: #b3b3b3;
+  }
+
+  .active  {
+    display: inline-block;
+    position: relative;
+  }
+
+  .active :before {
+    content: "";
+    position: absolute;
+    top: 25px;
+    background-color: #b3b3b3;
+    height: 4px;
+    left: calc(50% - 3px);
+    animation: line 0.4s normal forwards ease-in;
+  }
+
+  @keyframes line {
+    from {
+      width: 5px;
+      border-radius: 20%;
+    }
+    to {
+      width: calc(100% + 10px);
+      left: -5px;
+      border-radius: 10%;
+    }
   }
 }
