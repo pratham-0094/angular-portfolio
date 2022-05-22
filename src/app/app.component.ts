@@ -9,12 +9,13 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'angular-portfolio';
-  media = false;
+  media = true;
 
   constructor(public Location: Location, private router: Router) {
     if (this.Location.path() === '') {
       this.router.navigateByUrl('/Home');
     }
+    this.onResize();
   }
 
   @HostListener('window:resize', ['$event'])
