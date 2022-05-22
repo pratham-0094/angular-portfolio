@@ -5,31 +5,31 @@
       [ngClass]="{ active: this.Location.path() === '/Home' }"
       class="cursor-pointer mx-6"
     >
-      <a routerLink="/Home">HOME</a>
+      <a routerLink="/Home" id="Home">HOME</a>
     </li>
     <li
       [ngClass]="{ active: this.Location.path() === '/About' }"
       class="cursor-pointer mx-6"
     >
-      <a routerLink="/About">ABOUT</a>
+      <a routerLink="/About" id="About">ABOUT</a>
     </li>
     <li
       [ngClass]="{ active: this.Location.path() === '/Project' }"
       class="cursor-pointer mx-6"
     >
-      <a routerLink="/Project">PROJECT</a>
+      <a routerLink="/Project" id="Project">PROJECT</a>
     </li>
     <li
       [ngClass]="{ active: this.Location.path() === '/Work' }"
       class="cursor-pointer mx-6"
     >
-      <a routerLink="/Work">WORK</a>
+      <a routerLink="/Work" id="Work">WORK</a>
     </li>
     <li
       [ngClass]="{ active: this.Location.path() === '/Contact' }"
       class="cursor-pointer mx-6"
     >
-      <a routerLink="/Contact">CONTACT</a>
+      <a routerLink="/Contact" id="Contact">CONTACT</a>
     </li>
   </ul>
 </nav>
@@ -145,12 +145,16 @@
 </div>
 
 <!-- left -->
-<div class="fixed left-0 px-2 flex items-center h-screen">
+<div
+  [ngClass]="{ hidden: this.Location.path() === '/Home' }"
+  class="fixed left-0 px-2 flex items-center side h-full"
+>
   <svg
     width="18"
     height="39"
     viewBox="0 0 38 59"
     fill="none"
+    (click)="prev()"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
@@ -162,12 +166,16 @@
 </div>
 
 <!-- Right -->
-<div class="fixed right-0 px-2 flex items-center h-screen">
+<div
+  [ngClass]="{ hidden: this.Location.path() === '/Contact' }"
+  class="fixed right-0 px-2 flex items-center side h-full"
+>
   <svg
     width="18"
     height="39"
     viewBox="0 0 38 59"
     fill="none"
+    (click)="next()"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
