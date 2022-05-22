@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,10 +9,20 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'angular-portfolio';
+  media = false;
 
   constructor(public Location: Location, private router: Router) {
     if (this.Location.path() === '') {
       this.router.navigateByUrl('/Home');
+    }
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    if (window.innerWidth > 505) {
+      this.media = true;
+    } else {
+      this.media = false;
     }
   }
 

@@ -1,9 +1,8 @@
 @media only screen and (max-width: 505px) {
   .navbar ul {
     width: 100vw;
-    padding: 0px 10px;
+    padding: 0px 20px;
     justify-content: space-between;
-    font-size: 10px;
   }
 
   .side {
@@ -14,7 +13,7 @@
     margin: 0px;
   }
 
-  a svg {
+  .social a svg {
     width: 14px;
   }
 }
