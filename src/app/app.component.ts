@@ -10,9 +10,10 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'angular-portfolio';
   media = true;
+  location = ['Home', 'About', 'Project', 'Work', 'Contact'];
 
   constructor(public Location: Location, private router: Router) {
-    if (this.Location.path() === '') {
+    if (this.location.indexOf(this.Location.path().substring(1)) === -1) {
       this.router.navigateByUrl('/Home');
     }
     this.onResize();
