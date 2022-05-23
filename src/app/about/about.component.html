@@ -112,7 +112,7 @@
           class="justify-between"
           [ngClass]="{ 'w-full': media, flex: mediasm }"
         >
-          <div class="w-48 flex flex-col">
+          <div class="flex flex-col" [ngClass]="{'w-48':mediasm}">
             <div class="h-14 mb-4">
               <div class="text-lg text-silver-chalice">WEB DEVELOPMENT</div>
               <div class="text-xs">HTML, CSS, JAVASCRIPT, TYPESCRIPT</div>
@@ -126,7 +126,7 @@
               <div class="text-xs">FIGMA, CANVA</div>
             </div>
           </div>
-          <div class="w-48 flex flex-col">
+          <div class="flex flex-col" [ngClass]="{'w-48':mediasm}">
             <div class="h-14 mb-4">
               <div class="text-lg text-silver-chalice">FRAMEWORK/LIBRARY</div>
               <div class="text-xs">REACT, ANGULAR, EXPRESS, NODE</div>
