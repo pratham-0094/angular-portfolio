@@ -31,27 +31,27 @@ export class ProjectComponent implements OnInit {
     {
       title: 'AccInfo',
       link: 'https://github.com/pratham-0094/AccInfo',
-      image: '../assets/AccInfo.png',
+      image: 'assets/AccInfo.png',
     },
     {
       title: 'Address-Book',
       link: 'https://github.com/pratham-0094/Address-Book',
-      image: '../assets/Address-Book.png',
+      image: 'assets/Address-Book.png',
     },
     {
       title: 'Firstmy',
       link: 'https://github.com/prakhar-5447/firstmy',
-      image: '../assets/Firstmy.jpg',
+      image: 'assets/Firstmy.jpg',
     },
     {
       title: 'Juicy-N-Yummy',
       link: 'https://github.com/pratham-0094/Juicy-N-Yummy',
-      image: '../assets/Juicy-N-Yummy.png',
+      image: 'assets/Juicy-N-Yummy.png',
     },
     {
       title: 'ToDo-APP',
       link: 'https://github.com/pratham-0094/angular-project',
-      image: '../assets/ToDo-APP.png',
+      image: 'assets/ToDo-APP.png',
     },
   ];
 
