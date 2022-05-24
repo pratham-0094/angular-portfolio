@@ -21,7 +21,7 @@ export class AppComponent {
 
   @HostListener('window:resize', ['$event'])
   onResize() {
-    if (window.innerWidth > 505) {
+    if (window.innerWidth > 700) {
       this.media = true;
     } else {
       this.media = false;
@@ -30,7 +30,7 @@ export class AppComponent {
 
   @HostListener('window:scroll', ['$event'])
   onScroll() {
-    if (window.pageYOffset > 10 && !this.media) {
+    if (window.pageYOffset > 0 ) {
       document.getElementById('navbar')?.classList.add('bg-black');
     } else {
       document.getElementById('navbar')?.classList.remove('bg-black');
