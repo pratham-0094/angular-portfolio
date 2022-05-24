@@ -7,9 +7,7 @@
     >
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d411.93956175911967!2d82.59476548205497!3d22.00780258851105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a27bfe314bed537%3A0xc086f73e24e805fe!2sDeepti%20Vihar%20Colony!5e0!3m2!1sen!2sin!4v1653375549520!5m2!1sen!2sin"
-        width="250"
-        height="200"
-        [ngClass]="{ 'w-full h-64': !media }"
+        [ngClass]="{ 'w-64 h-full': media,'w-full h-64': !media }"
         class="border border-lapis-lazuli rounded-md"
         allowfullscreen=""
         loading="lazy"
