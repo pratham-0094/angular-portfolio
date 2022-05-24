@@ -1,2 +1,32 @@
 <!-- Project -->
-<div class="flex h-screen">Project</div>
+<div @fade class="flex h-screen">
+  <div class="m-auto flex flex-col items-center" [ngClass]="{'mt-16 mb-10':!media}">
+    <div class="text-3xl my-6">MY PROJECTS</div>
+    <div
+      class="overflow-y-auto h-3/4 grid"
+      [ngClass]="{
+        'grid-cols-3 gap-4 mb-16': media,
+        'grid-cols-2 gap-2': mediasm,
+        'grid-cols-1 gap-1': mediaxs
+      }"
+    >
+      <a
+        *ngFor="let i of project"
+        class="h-32 w-64 relative bg-black"
+        href="{{ i.link }}"
+        target="_blank"
+      >
+        <img
+          src="{{ i.image }}"
+          class="h-32 w-64 card absolute inset-0"
+          alt=""
+        />
+        <div
+          class="pl-1 bg-gradient-to-r from-silver-chalice to-transparent absolute left-0 bottom-0 text-lapis-lazuli text-sm w-full"
+        >
+          {{ i.title }}
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
