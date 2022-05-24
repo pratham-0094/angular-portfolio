@@ -94,7 +94,7 @@
       }"
       class="cursor-pointer"
     >
-      <a routerLink="/Work" id="Work">
+      <a routerLink="/Work" (click)="refresh()  " id="Work">
         <div *ngIf="media; else work">Work</div>
 
         <ng-template #work

@@ -27,7 +27,7 @@ export class WorkComponent implements OnInit {
 
   @HostListener('window:resize', ['$event'])
   onResize() {
-    if (window.innerWidth > 700) {
+    if (window.innerWidth > 850) {
       this.media = true;
     } else {
       this.media = false;

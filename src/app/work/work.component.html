@@ -1,25 +1,34 @@
 <!-- Work -->
-<div @fade class="flex h-screen">
-  <div class="m-auto" style="max-width: 700px" [ngClass]="{ flex: media }">
-    <div class="flex flex-col justify-center py-8 items-center h-auto">
+<div
+  @fade
+  class="flex items-center justify-center h-screen"
+  [ngClass]="{ 'flex-col pt-10': !media }"
+>
+  <div class="flex flex-col justify-center py-8 items-center h-auto">
+    <a href="" target="_blank" class="cursor">
       <img
         src="../../assets/pixel8cloud.jpg"
         class="h-32 w-32 rounded-full"
         alt=""
-      />
+    /></a>
+    <a href="" target="_blank" class="cursor-pointer">
       <div class="my-2 text-silver-chalice italic text-md">@pixel8cloud</div>
-    </div>
-    <hr class="h-72 border mx-10" [ngClass]="{ hidden: !media }" />
-    <div style="max-width: 450px">
-      <div class="text-3xl leading-6">PRATHAM SAHU</div>
-      <div class="text-xl text-silver-chalice pb-2">Web Developer</div>
-      <div class="text-xs">
-        From past I'm passionate about programming and wanted to learn amazing
-        thing about programming. I'm a programmer and insightful learner
-        interested in team building and learning new stuff's. I am Currently
-        learning backend, UI/UX designing ,programming languages and exploring
-        this beautiful world of developers
-      </div>
+    </a>
+  </div>
+  <hr class="h-72 border mx-16" *ngIf="media" />
+  <div
+    [ngClass]="{ 'w-3/6 h-4/5': media, 'h-96 w-96 m-10': !media }"
+    class="overflow-y-auto"
+  >
+    <div
+      class="tagembed-container border-lapis-lazuli"
+      style="width: 100%; height: 100%; overflow: auto"
+    >
+      <div
+        class="tagembed-socialwall"
+        data-wall-id="42925"
+        view-url="https://widget.tagembed.com/42925?view"
+      ></div>
     </div>
   </div>
 </div>

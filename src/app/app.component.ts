@@ -19,6 +19,12 @@ export class AppComponent {
     this.onResize();
   }
 
+  refresh() {
+    setInterval(() => {
+      window.location.reload();
+    }, 100);
+  }
+
   @HostListener('window:resize', ['$event'])
   onResize() {
     if (window.innerWidth > 700) {
@@ -30,7 +36,7 @@ export class AppComponent {
 
   @HostListener('window:scroll', ['$event'])
   onScroll() {
-    if (window.pageYOffset > 0 ) {
+    if (window.pageYOffset > 0) {
       document.getElementById('navbar')?.classList.add('bg-black');
     } else {
       document.getElementById('navbar')?.classList.remove('bg-black');
