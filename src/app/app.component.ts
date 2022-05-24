@@ -28,6 +28,15 @@ export class AppComponent {
     }
   }
 
+  @HostListener('window:scroll', ['$event'])
+  onScroll() {
+    if (window.pageYOffset > 10 && !this.media) {
+      document.getElementById('navbar')?.classList.add('bg-black');
+    } else {
+      document.getElementById('navbar')?.classList.remove('bg-black');
+    }
+  }
+
   next() {
     let list = document.querySelectorAll('.navbar ul li');
     if (list[0].classList.contains('active')) {
