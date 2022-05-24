@@ -1,2 +1,55 @@
 <!-- Contact -->
-<div class="flex h-screen">Contact</div>
+<div @fade class="flex h-screen">
+  <div class="m-auto" style="max-width: 700px" [ngClass]="{ flex: media }">
+    <div
+      class="flex flex-col mx-4 items-center h-auto"
+      [ngClass]="{ ' mb-10': !media }"
+    >
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d411.93956175911967!2d82.59476548205497!3d22.00780258851105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a27bfe314bed537%3A0xc086f73e24e805fe!2sDeepti%20Vihar%20Colony!5e0!3m2!1sen!2sin!4v1653375549520!5m2!1sen!2sin"
+        width="250"
+        height="200"
+        [ngClass]="{ 'w-full h-64': !media }"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+    <div>
+      <form class="flex flex-col" [ngClass]="{ 'mx-4': !media }">
+        <div class="flex justify-between">
+          <input
+            type="text"
+            [ngClass]="{ 'w-52': media }"
+            class="w-full mr-1 outline-none text-sm bg-transparent border-silver-chalice border rounded-md p-1 text-silver-chalice mb-2"
+            placeholder="Name"
+          />
+          <input
+            type="text"
+            [ngClass]="{ 'w-52': media }"
+            class="w-full ml-1 outline-none text-sm bg-transparent border-silver-chalice border rounded-md p-1 text-silver-chalice mb-2"
+            placeholder="Email"
+          />
+        </div>
+        <input
+          type="text"
+          class="w-full outline-none text-sm bg-transparent border-silver-chalice border rounded-md p-1 text-silver-chalice mb-2"
+          placeholder="Subject"
+        />
+        <textarea
+          type="textarea"
+          class="w-full outline-none text-sm bg-transparent resize-none border-silver-chalice border rounded-md p-1 text-silver-chalice mb-2"
+          placeholder="Write a message"
+          rows="4"
+        ></textarea>
+        <button
+          type="submit"
+          class="border w-16 ml-auto border-silver-chalice rounded-md px-2 py-1 text-silver-chalice text-sm"
+        >
+          Save
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
