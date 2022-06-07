@@ -1,5 +1,6 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { trigger, style, animate, transition } from '@angular/animations';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-project',
@@ -23,37 +24,43 @@ export class ProjectComponent implements OnInit {
   mediasm = true;
   mediaxs = true;
 
-  constructor() {
-    this.onResize();
-  }
+  uid: String = 'HVXJ4oyToWhktgb4M0GKhHxIdUy1';
+  projects: any = [];
 
-  project = [
-    {
-      title: 'AccInfo',
-      link: 'https://github.com/pratham-0094/AccInfo',
-      image: '../assets/AccInfo.png',
-    },
-    {
-      title: 'Address-Book',
-      link: 'https://github.com/pratham-0094/Address-Book',
-      image: '../assets/Address-Book.png',
-    },
-    {
-      title: 'Firstmy',
-      link: 'https://github.com/prakhar-5447/firstmy',
-      image: '../assets/Firstmy.jpg',
-    },
-    {
-      title: 'Juicy-N-Yummy',
-      link: 'https://github.com/pratham-0094/Juicy-N-Yummy',
-      image: '../assets/Juicy-N-Yummy.png',
-    },
-    {
-      title: 'ToDo-APP',
-      link: 'https://github.com/pratham-0094/angular-project',
-      image: '../assets/ToDo-APP.png',
-    },
-  ];
+  constructor(private http: HttpClient) {
+    this.onResize();
+    this.http
+      .get<any>(
+        `https://firestore.googleapis.com/v1/projects/ino-app-20b90/databases/(default)/documents/Users/${this.uid}`
+      )
+      .subscribe((response) => {
+        const projectUri = response.fields.project.arrayValue.values;
+
+        console.log(response);
+        console.log(response.fields.project.arrayValue.values);
+
+        projectUri.forEach((element: any) => {
+          const item = element.mapValue.fields;
+
+          // console.log(element.mapValue.fields);
+          // console.log(item.imageUri.stringValue);
+          // console.log(item.title.stringValue);
+          // console.log(item.desc.stringValue);
+          // console.log(item.link.stringValue);
+
+          let project = {
+            image: item.imageUri.stringValue,
+            title: item.title.stringValue,
+            desc: item.desc.stringValue,
+            link: item.link.stringValue,
+          };
+
+          // console.log(project);
+
+          this.projects.push(project);
+        });
+      });
+  }
 
   @HostListener('window:resize', ['$event'])
   onResize() {
