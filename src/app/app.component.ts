@@ -22,7 +22,7 @@ export class AppComponent {
   refresh() {
     setInterval(() => {
       window.location.reload();
-    }, 50);
+    }, 100);
   }
 
   @HostListener('window:resize', ['$event'])
